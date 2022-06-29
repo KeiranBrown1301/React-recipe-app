@@ -1,7 +1,7 @@
-function veggie() {
+function Veggie() {
   return (
     <div>veggie</div>
   )
 }
 
-export default veggie
+export default Veggie

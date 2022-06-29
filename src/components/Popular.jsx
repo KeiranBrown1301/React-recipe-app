@@ -1,7 +1,7 @@
-function popular() {
+function Popular() {
   return (
     <div>popular</div>
   )
 }
 
-export default popular
+export default Popular
