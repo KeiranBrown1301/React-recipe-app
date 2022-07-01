@@ -12,7 +12,7 @@ function Popular() {
   },[]);
 
   const getPopular = async () => {
-      const check = localStorage.getItem(popular);
+      const check = localStorage.getItem("popular");
 
       if (check) {
         setPopular(JSON.parse(check));
@@ -22,7 +22,7 @@ function Popular() {
         );
         const data = await api.json();
 
-        localStorage.setItem(popular, JSON.stringify(data.recipes))
+        localStorage.setItem("popular", JSON.stringify(data.recipes))
         setPopular(data.recipes);
         console.log(data.recipes);
       }
