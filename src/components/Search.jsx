@@ -4,8 +4,16 @@ import { FaSearch } from 'react-icons/fa';
 
 function Search() {
   return (
-    <div>Search</div>
-  )
+    <form>
+      <input type="text" />
+    </form>
+    )
 }
+
+const Form = styled.form`
+  margin: 0rem 20rem;
+  position: relative;
+  width: 100%;
+`
 
 export default Search
