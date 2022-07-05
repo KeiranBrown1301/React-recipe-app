@@ -5,10 +5,12 @@ import { FaSearch } from 'react-icons/fa';
 function Search() {
   const [input, setInput] = useState("");
 
-  const submitHandler
+  const submitHandler = (e) => {
+    e.preventDefault();
+  }
 
   return (
-    <FormStyle>
+    <FormStyle onSubmit={submitHandler}>
       <div>
         <FaSearch></FaSearch>
         <input
@@ -40,7 +42,7 @@ const FormStyle = styled.form`
   svg{
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 0%;
     transform: translate(100%, -50%);
     color: white;
   }
