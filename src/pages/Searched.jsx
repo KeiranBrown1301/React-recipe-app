@@ -1,10 +1,10 @@
-import React from 'react'
-import {useEffect, useState } from 'react'
-import {useParams} from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import styled from 'styled-components';
 
 function Searched() {
   const [searchedRecipes, setSearchedRecipes] = useState([]);
-  let params = useParams;
+  let params = useParams();
 
   const getSearched = async (name) => {
     const data = await fetch(
@@ -16,12 +16,20 @@ function Searched() {
 
   useEffect(() => {
     getSearched(params.search);
+    console.log(params.search);
   }, [params.search]);
 
   return (
-    <div>
-
-    </div>
+    <Grid>
+      {searchedRecipes.map((item) => {
+        return(
+          <Card key={item.id}>
+            <img src={item.image} alt="" />
+            <h4>{item.title}</h4>
+          </Card>
+        );
+      })}
+    </Grid>
   )
 }
 
