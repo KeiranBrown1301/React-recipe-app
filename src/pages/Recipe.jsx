@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 function Recipe() {
   const [details, setDetails] = useState({});
+  const [activeTab, setActiveTab] = useState('instructions');
   let params = useParams();
 
   const fetchDetails = async () => {
@@ -23,8 +24,22 @@ function Recipe() {
         <img src={details.image} alt="" />
       </div>
       <Info>
-        <Button>Instructions</Button>
-        <Button>Ingredients</Button>
+        <Button
+          className={activeTab === 'instructions' ? 'active' : ''}
+          onClick={() => setActiveTab('instructions')}
+        >
+          Instructions
+        </Button>
+        <Button
+          className={activeTab === 'ingredients' ? 'active' : ''}
+          onClick={() => setActiveTab('ingredients')}
+        >
+          Ingredients
+        </Button>
+        <div>
+          <h3 dangerouslySetInnerHTML={{ __html: details.summary}}></h3>
+          <h3 dangerouslySetInnerHTML={{ __html: details.instructionss}}></h3>
+        </div>
       </Info>
    </DetailWrapper>
   )
